@@ -1,3 +1,7 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 import os
 
 from metaflow import (
@@ -17,9 +21,12 @@ class TemplateFlow(FlowSpec):
     This flow is a template for you to use
     for orchestration of your model.
     """
+
+    # You can import the contents of files from your file system to use in flows.
+    # This is meant for small files—in this example, a bit of config.
     example_config = IncludeFile("example_config", default="./example_config.json")
 
-    #This is an example of a parameter. You can toggle this when you call the flow
+    # This is an example of a parameter. You can toggle this when you call the flow
     # with python template_flow.py run --offline False
     offline_wandb = Parameter(
         "offline",
@@ -76,7 +83,8 @@ class TemplateFlow(FlowSpec):
                 project=os.getenv("WANDB_PROJECT")
             )
             wandb_url = tracking_run.get_url()
-            current.card.append(Markdown(f"# WandB training run tracked [here]({wandb_url})"))
+            current.card.append(Markdown(f"# Weights & Biases"))
+            current.card.append(Markdown(f"Your training run is tracked [here]({wandb_url})."))
 
         print(f"All set. Running training.")
         # Model training goes here
@@ -100,11 +108,4 @@ class TemplateFlow(FlowSpec):
 
 if __name__ == "__main__":
     TemplateFlow()
-
-
-import os
-import logging
-import sys
-
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
