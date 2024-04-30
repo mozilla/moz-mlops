@@ -1,0 +1,2 @@
+wandb==0.16.3
+outerbounds[gcp]==0.3.62
