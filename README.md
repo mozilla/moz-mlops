@@ -21,14 +21,17 @@ Look for a dropdown that says “perimeter.” You want to make sure that, if yo
 
 You should see an instruction to run a command line command that starts with `outerbounds configure`. Copy that whole thing and run it on your command line. What this does, is it makes a `config.json` file located at `~/.metaflowconfig` on your local machine. This is the default configuration for metaflow on your machine now, and unless told otherwise, metaflow flows on your machine will now always run on Outerbounds. 
 
-### Once you have done the above, you're ready to use the template in this repository.
+### Running the template Metaflow flow
 
-1. Install the requirements listed in the `requirements.txt` in the `templates` directory of this repo, and also add those to your project requirements files.
-2. Copy the `template_flow.py` file from ths repo into _your_ repo. From there, you can run `python template_flow.py run --offline True`.
+1. Install the requirements listed in [`templates/requirements.txt`](`templates/requirements.txt`) and also add those to your project requirements files.
+2. Copy the `template_flow.py` file from this repo into _your_ repo. From there, you can run `python template_flow.py run --offline True`.
 
-You will see your metaflow flow kick off with such proclamations as "The graph looks good!" and "Pylint is happy!", and then, [you can go here](https://ui.desertowl.obp.outerbounds.com/dashboard/runs) (to the “Runs” tab in the Outerbounds UI) to track the progress of the flow, see stderr and stdout, et cetera. 
+> [!TIP]
+>The `--offline True` command line argument tells the template flow to not track experiments on W&B.
 
-Eventually you should see the flow finish with "Task finished successfully." Once you see that, you know you've got a working minimal flow: you're now ready to start putting your model training code _into_ this flow to run it on the Outerbounds instance. Comments _inside_ the template file should help you understand where to put that code, and demonstrate some of the tools Metaflow makes available to you.
+The Metaflow flow will run internal consistency checks and linting, and then provide a link to track the progress of the flow on our platform, see stderr and stdout, et cetera. 
+
+Eventually you should see the flow finish with "Task finished successfully." Once you see that, you know you've got a working minimal flow: you're now ready to start putting your model training code _into_ this flow to run it remotely. Comments _inside_ the template file should help you understand where to put that code, and demonstrate some of the tools Metaflow makes available to you.
 
  ## Next: A Fancy Dashboard
 
