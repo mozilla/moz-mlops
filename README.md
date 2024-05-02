@@ -44,11 +44,11 @@ Once you have the account, you're in luck; the `template_flow` already integrate
 
 Note the three environment variables listed at the top of the `train` step:
 
-- The WANDB_API_KEY you can get by going to this page, once your wandb credentials are set up (see step 1). Treat this with the sensitive that you would treat any API key. You will see in a later step how to use this string; for now, you can stick this in your local repository’s .env. 
+- The `WANDB_API_KEY` you can get by going to [this page](https://wandb.ai/), once your wandb credentials are set up (see the account provisioning section). Treat this with the sensitive that you would treat any API key. You will see in a later step how to use this string; for now, you can stick this in your local repository’s .env. 
 
-- The WANDB_ENTITY is your wandb username (or, in the case of a service account, the service account username, which MLOps should have provided to you if you had them make a service account). 
+- The `WANDB_ENTITY` is your wandb username or the service account username (provided to you by the MLOps upon request). 
 
-- The WANDB_PROJECT is the name of the project that this run is for. You can see and create projects for your team at this URL: https://wandb.ai/YOUR_TEAM_NAME_HERE/projects.
+- The `WANDB_PROJECT` is the name of the project that this run is for. You can see and create projects for your team at this URL: https://wandb.ai/YOUR_TEAM_NAME_HERE/projects.
 
 You can customize what you send to Weights and Biases as well as the graphs and data that appears there, and the team maintains decent documentation on your customization options. The wandb engineering support team is also incredibly helpful. Talk to MLOps about your problem and they can get you added to our joint channel with wandb where folks are available to help.
 
@@ -58,7 +58,6 @@ When it’s time to run your flow on outerbounds with your weights and biases da
 ```bash
 WANDB_API_KEY=your-key-here WANDB_ENTITY=ctroy WANDB_PROJECT=mlops-codecopilot-demo python your-flow.py run --offline False
 ```
-(note that we have changed `offline` here to false—that means we _do_ want our flow to integrate with Weights and Biases!)
-
-
+> [!NOTE]  
+> We have changed `offline` here to false: hat means we _do_ want our flow to integrate with Weights and Biases!
 
